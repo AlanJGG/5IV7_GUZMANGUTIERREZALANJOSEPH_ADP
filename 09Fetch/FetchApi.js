@@ -18,17 +18,17 @@
      let currentClassType = null;
      //Este es una sumple cadeno para crear la imagne
      const imageTemplate = "<img class='pokedisplay' src='{imgSrc}' alt='pokedisplay' />";
- 
-     /**Este objeto sirve para guardar las rutas de las imagenes de apoyo que se utilizaran cuando esperemos el resultado de la bsuqueda o cuando no se encuentr el pokemon solicitado */
- 
-     const images = {
-         imgPokemonNotFound: "./img/404.png",
-         imgLoading: "./img/loading.gif"
-     };
- 
-     /**Este objeto contiene las referencias de los elementos que se desplegaran con la informacion del pokemon */
- 
-     const container = {
+    
+        /**Este objeto sirve para guardar las rutas de las imagenes de apoyo que se utilizaran cuando esperemos el resultado de la bsuqueda o cuando no se encuentr el pokemon solicitado */
+    
+        const images = {
+            imgPokemonNotFound: "./img/404.png",
+            imgLoading: "./img/loading.gif"
+        };
+    
+        /**Este objeto contiene las referencias de los elementos que se desplegaran con la informacion del pokemon */
+    
+        const container = {
          imageContainer: document.getElementById("pokedisplay-container"),
          pokemonTypesContainer: document.getElementById("pokemonTypes"),
          pokemonNameElement: document.getElementById("pokemonNameResult"),
