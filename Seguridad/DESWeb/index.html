@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <h1 id="title">Cifrado y Descifrado de Archivos - DES</h1>
     <hr>
+    <p>no pude deployarlo D:</p>
     <div class="clave-section">
 
     </div>
@@ -25,27 +26,27 @@
     <div class="section">
         <h2 class="subtitle">Sube un archivo .txt para cifrarlo</h2>
         <br>
-        <input class="fileinput" type ="file" id ="archivoCifrar" onchange ="return Validar()">
+        <input class="fileinput" type ="file" id ="archivoCifrar" onchange ="return ValidarArchC()">
         <br>
         <br>
         <input class = "btn" type = "button" value = "Cifrar" onclick = "Cifrar()">
         <br>
         <br>
         <br>
-        <div class = "salida" id = "leeArchivoCifrar">
+        <div class = "salida" id = "Cifrar-output">
         </div>
     </div>
     <div class="section">
         <h2 class="subtitle">Sube un archivo .txt para descifrarlo</h2>
         <br>
-        <input class="fileinput" type ="file" id ="archivoDescifrar" onchange ="return ValidarDes()">
+        <input class="fileinput" type ="file" id ="archivoDescifrar" onchange ="return ValidarArchD()">
         <br>
         <br>
         <input class = "btn" type = "button" value = "Descifrar" onclick = "Descifrar()">
         <br>
         <br>
         <br>
-        <div class = "salida" id = "leeArchivoDescifrar">
+        <div class = "salida" id = "Descifrar-output">
         </div>
     </div>
         

@@ -1,31 +1,31 @@
 async function subirArchivoCifrar(file){
 
     var txt = await file.text();
-    document.getElementById("leeArchivoCifrar").textContent = txt;
+    document.getElementById("Cifrar-output").textContent = txt;
 
 }
 
 const Cifrar = () => {
     
-    var msj = document.getElementById('leeArchivoCifrar').innerHTML;
-    var llave = document.getElementById('clave').value;
+    var texto = document.getElementById('Cifrar-output').innerHTML;
+    var clave = document.getElementById('clave').value;
 
-    console.log(msj)
+    console.log(texto)
 
-    if(llave == ''){
+    if(clave == ''){
 
         alert('Ingresa una clave para el cifrado');
         
     }
     else{
 
-        var encriptado = CryptoJS.DES.encrypt(msj, CryptoJS.enc.Utf8.parse (llave) , {
+        var encriptado = CryptoJS.DES.encrypt(texto, CryptoJS.enc.Utf8.parse (clave) , {
                 
             mode : CryptoJS.mode.ECB , padding : CryptoJS.pad.Pkcs7
         
         }).toString();
         
-        document.getElementById('leeArchivoCifrar').innerHTML = 
+        document.getElementById('Cifrar-output').innerHTML = 
         '<label>Mensaje cifrado:</label>'+
         '<h1 id = "resultado1">' + encriptado + '</h1>';
 
@@ -33,32 +33,32 @@ const Cifrar = () => {
 
 }
 
-const Validar = () =>{
+const ValidarArchC = () =>{
 
-    var archivoEscogido = document.getElementById('archivoCifrar');
-    var contenidoarchivoEscogido = archivoEscogido.value;
+    var archivo = document.getElementById('archivoCifrar');
+    var archivoCont = archivo.value;
     var ext = /(.txt)$/i; 
 
-    if(!ext.exec(contenidoarchivoEscogido)){
+    if(!ext.exec(archivoCont)){
 
         alert('Sólo puedes subir documentos de texto');
-        archivoEscogido.value = '';
+        archivo.value = '';
         return false;
 
     }
     else{
 
-        if(archivoEscogido.files && archivoEscogido.files[0]){
+        if(archivo.files && archivo.files[0]){
 
-            var lector = new FileReader();
-            lector.onload = function(event){
+            var reader = new FileReader();
+            reader.onload = function(event){
 
-                subirArchivoCifrar(archivoEscogido.files[0]); 
+                subirArchivoCifrar(archivo.files[0]); 
 
             }
         
 
-            lector.readAsDataURL(archivoEscogido.files[0]);
+            reader.readAsDataURL(archivo.files[0]);
 
         }
 
@@ -69,11 +69,10 @@ const Validar = () =>{
 async function subirArchivoDescifrar(file){
 
     var txt = await file.text();
-    document.getElementById('leeArchivoDescifrar').textContent = txt;
+    document.getElementById('Descifrar-output').textContent = txt;
 
 }
-
-const ValidarDes = () =>{
+const ValidarArchD = () =>{
 
     var archivoEscogido = document.getElementById('archivoDescifrar');
     var contenidoarchivoEscogido = archivoEscogido.value;
@@ -106,23 +105,23 @@ const ValidarDes = () =>{
 
 const Descifrar = () => {
 
-    var msjEncriptado = document.getElementById('leeArchivoDescifrar').innerHTML;
-    var llave = document.getElementById('clave').value;
+    var textoEnc = document.getElementById('Descifrar-output').innerHTML;
+    var clave = document.getElementById('clave').value;
 
-    if(llave == ''){
+    if(clave == ''){
 
         alert('Ingresa una clave para el descifrado');
 
     }
     else{
 
-        var desencriptado = CryptoJS.DES.decrypt(msjEncriptado, CryptoJS.enc.Utf8.parse(llave), {
+        var desencriptado = CryptoJS.DES.decrypt(textoEnc, CryptoJS.enc.Utf8.parse(clave), {
             
             mode : CryptoJS.mode.ECB , padding: CryptoJS.pad.Pkcs7
         
         }).toString(CryptoJS.enc.Utf8);
 
-        document.getElementById("leeArchivoDescifrar").innerHTML = 
+        document.getElementById("Descifrar-output").innerHTML = 
         '<label>Mensaje descifrado: </label>'+
         '<h1 id = "resultado2">' + desencriptado + '</h1>';
 
